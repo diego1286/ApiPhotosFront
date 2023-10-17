@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <div class="card">
+          <div class="card-header">
+            Sube tu foto
+          </div>
+          <div class="card-body">
+            <form (submit)="uploadPhoto(title, description, author)">
+              <div class="form-group">
+                <input type="text" class="form-control" id="title" placeholder="Título de la foto" required #title>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="author" placeholder="Autor de la imagen" required #author>
+              </div>
+              <div class="form-group">
+                <textarea id="description" rows="2" class="form-control" placeholder="Descripción de la imagen" required #description></textarea>
+              </div>
+              <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+              <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid mb-3" alt="No image" style="max-width: 200px;" (click)="photoInput.click()">
+              <button class="btn btn-primary btn-block">Cargar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
